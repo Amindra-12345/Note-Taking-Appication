@@ -1,14 +1,29 @@
 import express from "express" // const express = require("express");
+import notesRoutes from "./src/Routes/notesRoutes.js";
 
 const app = express();
 
-app.get("/api/notes", (req,res) => {
-    res.send("you got the 5 notes");
-});
-app.post("/api/notes", (req, res) => {
-    res.send("You got the 5 notes");
-});
+app.use("/api/notes", notesRoutes);
 
+
+// app.get("/api/notes", (req,res) => {
+//     res.status(200).send("you got the 50 notes");
+// });
+// // app.post("/api/notes", (req, res) => {
+// //     res.send("You got the 5 notes");
+// // });
+// app.post("/api/notes", (req, res) => {
+// res.status(201).json({ message: "Note created successfully!" });
+
+// });
+
+// app.put("/api/notes/: id", (req, res) => {
+// res.status(200). json({ message: "Note updated successfully!" });
+// });
+
+// app.delete("/api/notes/: id", (req, res) => {
+// res.status(200).json({ message: "Note deleted successfully!" });
+// });
 app.listen(5001, () => {
     console.log("Server started on PORT; 5001");
 });
